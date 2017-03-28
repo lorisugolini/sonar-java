@@ -32,8 +32,8 @@ plugin|ruling)
   [ -n "${PROJECT:-}" ] && EXTRA_PARAMS="-DfailIfNoTests=false -Dtest=JavaRulingTest#$PROJECT"
   strongEcho 'mvn version'
   mvn -version
-  strongEcho 'MAVEN_OPTS'
-  echo $MAVEN_OPTS
+  strongEcho 'JAVA_OPTS'
+  echo $JAVA_OPTS
   strongEcho 'RULING JBOSS EJB3'
   mvn install -Dsonar.runtimeVersion="$SQ_VERSION" -Dmaven.test.redirectTestOutputToFile=false -B -e -V -Pit-$TEST $EXTRA_PARAMS
   ;;
