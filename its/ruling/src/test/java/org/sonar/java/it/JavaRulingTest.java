@@ -28,7 +28,7 @@ import com.sonar.orchestrator.build.Build;
 import com.sonar.orchestrator.build.MavenBuild;
 import com.sonar.orchestrator.build.SonarScanner;
 import com.sonar.orchestrator.locator.FileLocation;
-import no.finn.lambdacompanion.Try;
+
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.Fail;
 import org.junit.BeforeClass;
@@ -40,6 +40,7 @@ import org.slf4j.LoggerFactory;
 import org.sonar.wsclient.SonarClient;
 
 import javax.annotation.Nullable;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -51,6 +52,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import no.finn.lambdacompanion.Try;
 
 public class JavaRulingTest {
 
@@ -192,6 +195,7 @@ public class JavaRulingTest {
       .setSourceEncoding("UTF-8")
       .setSourceDirs(".")
       .setProperty("sonar.java.source", "1.5")
+      .setDebugLogs(true)
       .setProperty("sonar.inclusions", "java/**/*.java");
     executeBuildWithCommonProperties(build, projectName);
   }
